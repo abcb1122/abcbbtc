@@ -3,39 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Landing Page - ABCBBTC</title>
+    <title>ABCB BTC - Curso de Bitcoin para Principiantes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2Lw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-        .container {
-            padding: 50px;
+
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
         }
-        h1 {
-            color: #333;
+
+        /* Navegación */
+        nav {
+            background-color: #f7931a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        p {
-            color: #666;
-            font-size: 18px;
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
         }
-        a {
-            color: #007bff;
+
+        nav ul li a {
+            color: #1a1a1a;
             text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.3s;
         }
-        a:hover {
+
+        nav ul li a:hover {
+            color: #fff;
+        }
+
+        /* Encabezado */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1639328744464-2f1a1e0f51c8?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            color: #f7931a;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header h1 i {
+            font-size: 50px;
+            color: #f7931a;
+        }
+
+        header p {
+            font-size: 24px;
+            color: #ccc;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #f7931a;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e07b00;
+            transform: scale(1.05);
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 36px;
+            color: #f7931a;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Sobre mí */
+        #sobre-mi {
+            background-color: #2a2a2a;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        #sobre-mi p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        #sobre-mi ul {
+            list-style: none;
+            font-size: 16px;
+            color: #f7931a;
+        }
+
+        #sobre-mi ul li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #sobre-mi ul li i {
+            color: #f7931a;
+        }
+
+        /* Detalles del curso */
+        #detalles-curso .encuentro {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #detalles-curso .encuentro span {
+            font-size: 30px;
+        }
+
+        #detalles-curso .encuentro p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        #detalles-curso .nota {
+            text-align: center;
+            font-style: italic;
+            color: #f7931a;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Por qué elegir este curso */
+        #por-que .beneficio {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        #por-que .beneficio i {
+            font-size: 40px;
+            color: #f7931a;
+        }
+
+        #por-que .beneficio p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* Llamada a la acción */
+        #contacto {
+            text-align: center;
+            background-color: #f7931a;
+            padding: 40px 20px;
+            border-radius: 15px;
+        }
+
+        #contacto h2 {
+            color: #1a1a1a;
+        }
+
+        #contacto p {
+            color: #1a1a1a;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2a2a2a;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        footer a {
+            color: #f7931a;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            header h1 i {
+                font-size: 35px;
+            }
+
+            header p {
+                font-size: 18px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            #detalles-curso .encuentro {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #por-que .beneficio {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bienvenidos a ABCBBTC</h1>
-        <p>¡Hola! Soy abcb1122, y esta es mi página personal. Estoy aprendiendo sobre Bitcoin y Lightning Network.</p>
-        <p>Conoce más sobre mí en <a href="https://github.com/abcb1122">mi perfil de GitHub</a>.</p>
-    </div>
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#detalles-curso">El Curso</a></li>
+            <li><a href="#por-que">¿Por Qué?</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Encabezado -->
+    <header id="inicio">
+        <h1>Protege tu patrimonio en la era digital con Bitcoin <i class="fab fa-bitcoin"></i></h1>
+        <p>Una formación práctica y sin tecnicismos para empresarios, profesionales y familias que desean entender Bitcoin desde cero y usarlo de forma segura y privada.</p>
+        <a href="https://t.me/abcb1122" class="btn">Contáctame para empezar</a>
+    </header>
+
+    <!-- Sobre mí -->
+    <section id="sobre-mi">
+        <h2>Ariel Bueno de Camargo - Experto en Bitcoin</h2>
+        <p>Soy un educador apasionado por Bitcoin y Web3, con años de experiencia ayudando a personas a navegar el mundo de las criptomonedas de forma segura y soberana.</p>
+        <ul>
+            <li><i class="fas fa-graduation-cap"></i> Administrador de Empresas - Universidad Autónoma del Caribe</li>
+            <li><i class="fas fa-graduation-cap"></i> Web3 Certified Expert - University of Nicosia</li>
+            <li><i class="fas fa-graduation-cap"></i> Trading Profesional y Negociación Bursátil - Bolsa de Valores de Colombia</li>
+            <li><i class="fas fa-graduation-cap"></i> Seminario "Mastering Bitcoin" - Librería de Satoshi</li>
+            <li><i class="fas fa-graduation-cap"></i> Certified Bitcoin Professional (en curso) - CryptoCurrency Certification Consortium</li>
+        </ul>
+    </section>
+
+    <!-- Detalles del curso -->
+    <section id="detalles-curso">
+        <h2>¿Qué incluye el curso?</h2>
+        <div class="encuentro">
+            <span>🍊</span>
+            <p><strong>Encuentro 1:</strong> ¿Cómo nació, quién creó y dónde está realmente Bitcoin?</p>
+        </div>
+        <div class="encuentro">
+            <span>⛓️</span>
+            <p><strong>Encuentro 2:</strong> Glosario esencial. ¿Qué significa ser dueño de Bitcoin? Wallets, llaves privadas y públicas, semilla BIP39.</p>
+        </div>
+        <div class="encuentro">
+            <span>💰</span>
+            <p><strong>Encuentro 3:</strong> Cómo adquirir Bitcoin sin comprometer tu privacidad: exchanges, P2P, servicios y trazabilidad.</p>
+        </div>
+        <div class="encuentro">
+            <span>🤖</span>
+            <p><strong>Encuentro 4:</strong> Participantes del ecosistema. ¿Qué es un nodo? ¿Quiénes son los mineros y desarrolladores? Soberanía, descentralización y resistencia a la censura.</p>
+        </div>
+        <div class="encuentro">
+            <span>📈</span>
+            <p><strong>Encuentro 5:</strong> ¿Qué es el análisis técnico y fundamental? Introducción a Web3 y su utilidad real en el ecosistema Bitcoin.</p>
+        </div>
+        <div class="encuentro">
+            <span>🤩</span>
+            <p><strong>Encuentro 6 (presencial):</strong> Crearemos tu primera semilla completamente offline y pondremos en práctica una estrategia segura y personalizada de almacenamiento.</p>
+        </div>
+        <p class="nota">🔐 Este curso no es para especular. Es para quienes desean proteger lo que han construido.</p>
+    </section>
+
+    <!-- Por qué elegir este curso -->
+    <section id="por-que">
+        <h2>¿Por qué elegir este curso?</h2>
+        <div class="beneficio">
+            <i class="fas fa-lock"></i>
+            <p><strong>Seguridad desde cero:</strong> Aprende a adquirir y almacenar Bitcoin de forma segura, protegiendo tu patrimonio digital.</p>
+        </div>
+        <div class="beneficio">
+            <i class="fas fa-link"></i>
+            <p><strong>Privacidad garantizada:</strong> Domina técnicas para mantener tu privacidad en el mundo de las criptomonedas.</p>
+        </div>
+        <div class="beneficio">
+            <i class="fab fa-bitcoin"></i>
+            <p><strong>Soberanía financiera:</strong> Toma el control de tu dinero con un sistema descentralizado y resistente a la censura.</p>
+        </div>
+    </section>
+
+    <!-- Llamada a la acción -->
+    <section id="contacto">
+        <h2>¿Listo para empezar?</h2>
+        <p>Únete a mi curso y comienza tu viaje hacia la soberanía financiera con Bitcoin.</p>
+        <a href="https://t.me/abcb1122" class="btn">Contáctame en Telegram</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 ABCB BTC - Todos los derechos reservados</p>
+        <a href="https://github.com/abcb1122">GitHub</a> | 
+        <a href="#">Nostr (Próximamente)</a> | 
+        <a href="#">Lightning Address (Próximamente)</a>
+    </footer>
 </body>
 </html>
