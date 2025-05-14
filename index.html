@@ -3,193 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Introducción al Bitcoin - ABCB</title>
+    <title>Domina Bitcoin: Curso Educativo 2025</title>
+    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat (modern) and Lora (elegant) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        /* Custom CSS for additional styling */
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #e5e7eb;
-            font-family: 'Inter', sans-serif;
-            position: relative;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a; /* Deep black for luxury */
+            color: #ffffff;
         }
-        .gold-text {
-            color: #d4af37;
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
         }
-        .section-bg {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
         }
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-        .circuit-texture {
-            background-image: url('https://images.unsplash.com/photo-1639323523400-7c8c2f20f5c9?auto=format&fit=crop&w=1920&q=80');
+        /* Hero section with gradient overlay */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://raw.githubusercontent.com/yourusername/yourrepo/main/images/bitcoin-logo-futuristic.png'); /* Updated with GitHub-hosted image */
             background-size: cover;
-            background-attachment: fixed;
-            opacity: 0.1;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
-        .hero-overlay {
-            position: relative;
-            background: url('https://images.unsplash.com/photo-1621761191319-c6fb6202201d?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
-            opacity: 0.2;
+        /* Fade-in animation for scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .bitcoin-icon {
-            fill: #d4af37;
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 8px;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .glow-effect {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        /* Hover effect for buttons */
+        .btn {
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col relative">
-    <!-- Background Texture -->
-    <div class="circuit-texture"></div>
-
-    <!-- Header -->
-    <header class="py-6 px-4 md:px-8 flex justify-between items-center relative z-10">
-        <h1 class="text-2xl md:text-3xl font-bold gold-text flex items-center">
-            <svg class="bitcoin-icon" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.54 17.964h-2.54v-2.54h2.54v2.54zm0-4.064h-2.54v-5.08h2.54v5.08zm-4.064 4.064H7.936v-2.54h2.54v2.54zm0-4.064H7.936v-5.08h2.54v5.08zm5.588-7.112h-1.524V4.064h-2.54v2.54h-2.54V4.064h-2.54v2.54H6.412c-.56 0-1.016.456-1.016 1.016v9.144c0 .56.456 1.016 1.016 1.016h9.144c.56 0 1.016-.456 1.016-1.016V7.852c0-.56-.456-1.016-1.016-1.016z"/>
-            </svg>
-            ABCB
-        </h1>
-        <a href="https://t.me/abcb1122" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition glow-effect">Contáctame</a>
-    </header>
-
+<body>
     <!-- Hero Section -->
-    <section class="flex-1 flex flex-col items-center justify-center text-center py-12 px-4 md:px-8 hero-overlay relative z-10">
-        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-            Curso de Introducción al Bitcoin
-        </h2>
-        <p class="text-xl md:text-2xl font-light gold-text mb-6 flex items-center justify-center">
-            <svg class="bitcoin-icon" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.54 17.964h-2.54v-2.54h2.54v2.54zm0-4.064h-2.54v-5.08h2.54v5.08zm-4.064 4.064H7.936v-2.54h2.54v2.54zm0-4.064H7.936v-5.08h2.54v5.08zm5.588-7.112h-1.524V4.064h-2.54v2.54h-2.54V4.064h-2.54v2.54H6.412c-.56 0-1.016.456-1.016 1.016v9.144c0 .56.456 1.016 1.016 1.016h9.144c.56 0 1.016-.456 1.016-1.016V7.852c0-.56-.456-1.016-1.016-1.016z"/>
-            </svg>
-            Protege tu patrimonio a largo plazo en la era digital
-        </p>
-        <p class="text-lg md:text-xl max-w-3xl mb-8">
-            Una formación práctica y sin tecnicismos, dirigida a empresarios, profesionales y familias que desean entender Bitcoin desde cero y usarlo de forma segura y privada.
-        </p>
-        <a href="https://t.me/abcb1122" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-yellow-400 transition hover-scale glow-effect">Inscríbete Ahora</a>
+    <section class="hero">
+        <div class="fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold text-yellow-400 mb-4">Domina Bitcoin: Asegura tu Futuro Financiero</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-6">Protege tu patrimonio con una formación práctica sobre Bitcoin y Lightning Network.</p>
+            <a href="https://t.me/abcb1122" class="btn bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg">¡Únete al Curso Ahora!</a>
+        </div>
     </section>
 
-    <!-- Course Details -->
-    <section class="py-12 px-4 md:px-8 relative z-10">
-        <h3 class="text-3xl md:text-4xl font-bold text-center mb-10 gold-text">Detalles del Curso</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div class="section-bg p-6 rounded-lg hover-scale">
-                <h4 class="text-xl font-semibold gold-text mb-2 flex items-center">
-                    <span class="mr-2">📍</span> Estructura
-                </h4>
-                <p>5 encuentros virtuales en vivo + 1 encuentro presencial opcional.</p>
+    <!-- Course Overview Section -->
+    <section id="course" class="py-16 px-4 md:px-16 bg-gray-900">
+        <div class="max-w-6xl mx-auto fade-in">
+            <h2 class="text-4xl font-bold text-yellow-400 mb-8 text-center">¿Qué Aprenderás en el Curso?</h2>
+            <p class="text-lg text-gray-300 mb-6 text-center">Una formación práctica y sin tecnicismos para empresarios, profesionales y familias que desean dominar Bitcoin desde cero de forma segura y privada.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">5 Encuentros Virtuales + 1 Presencial Opcional</h3>
+                    <ul class="list-disc pl-5 text-gray-300">
+                        <li><strong>Encuentro 1:</strong> Origen de Bitcoin, su creador y dónde reside realmente.</li>
+                        <li><strong>Encuentro 2:</strong> Glosario esencial: wallets, llaves privadas, semilla BIP39.</li>
+                        <li><strong>Encuentro 3:</strong> Adquirir Bitcoin sin comprometer tu privacidad.</li>
+                        <li><strong>Encuentro 4:</strong> Ecosistema Bitcoin: nodos, mineros, descentralización.</li>
+                        <li><strong>Encuentro 5:</strong> Análisis técnico/fundamental y Web3.</li>
+                        <li><strong>Encuentro 6 (Presencial):</strong> Crea tu semilla offline y una estrategia de almacenamiento.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
+                    <!-- Updated with GitHub-hosted secure wallet image -->
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/secure-wallet-vault.png" alt="Billetera Segura" class="rounded-lg max-w-full h-auto">
+                </div>
             </div>
-            <div class="section-bg p-6 rounded-lg hover-scale">
-                <h4 class="text-xl font-semibold gold-text mb-2 flex items-center">
-                    <span class="mr-2">🍊</span> Encuentro 1
-                </h4>
-                <p>¿Cómo nació, quién creó y dónde está realmente Bitcoin?</p>
-            </div>
-            <div class="section-bg p-6 rounded-lg hover-scale">
-                <h4 class="text-xl font-semibold gold-text mb-2 flex items-center">
-                    <span class="mr-2">⛓️</span> Encuentro 2
-                </h4>
-                <p>Glosario esencial. ¿Qué significa ser dueño de Bitcoin? Wallets, llaves privadas y públicas, semilla BIP39.</p>
-            </div>
-            <div class="section-bg p-6 rounded-lg hover-scale">
-                <h4 class="text-xl font-semibold gold-text mb-2 flex items-center">
-                    <span class="mr-2">💰</span> Encuentro 3
-                </h4>
-                <p>Cómo adquirir Bitcoin sin comprometer tu privacidad: exchanges, P2P, servicios y trazabilidad.</p>
-            </div>
-            <div class="section-bg p-6 rounded-lg hover-scale">
-                <h4 class="text-xl font-semibold gold-text mb-2 flex items-center">
-                    <span class="mr-2">🤖</span> Encuentro 4
-                </h4>
-                <p>Participantes del ecosistema. ¿Qué es un nodo? ¿Quiénes son los mineros y desarrolladores? Soberanía, descentralización y resistance a la censura.</p>
-            </div>
-            <div class="section-bg p-6 rounded-lg hover-scale">
-                <h4 class="text-xl font-semibold gold-text mb-2 flex items-center">
-                    <span class="mr-2">📈</span> Encuentro 5
-                </h4>
-                <p>¿Qué es el análisis técnico y fundamental? Introducción a Web3 y su utilidad real en el ecosistema Bitcoin.</p>
-            </div>
-            <div class="section-bg p-6 rounded-lg hover-scale md:col-span-2 lg:col-span-3">
-                <h4 class="text-xl font-semibold gold-text mb-2 flex items-center">
-                    <span class="mr-2">🤩</span> Encuentro 6 (Presencial)
-                </h4>
-                <p>Crearemos tu primera semilla completamente offline y pondremos en práctica una estrategia segura y personalizada de almacenamiento.</p>
+            <div class="mt-8 flex justify-center">
+                <!-- New character-based image: Teaching in classroom -->
+                <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/character-teaching-classroom.png" alt="Instructor enseñando sobre Bitcoin" class="rounded-lg max-w-full h-auto">
             </div>
         </div>
     </section>
 
-    <!-- About Instructor -->
-    <section class="py-12 px-4 md:px-8 bg-gray-900 relative z-10">
-        <h3 class="text-3xl md:text-4xl font-bold text-center mb-10 gold-text">Sobre el Instructor</h3>
-        <div class="max-w-3xl mx-auto text-center">
-            <p class="text-lg mb-4">Ariel Bueno de Camargo (ABCB)</p>
-            <ul class="text-left max-w-md mx-auto">
-                <li class="mb-2 flex items-center">
-                    <svg class="bitcoin-icon w-5 h-5 mr-2" viewBox="0 0 24 24">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.54 17.964h-2.54v-2.54h2.54v2.54zm0-4.064h-2.54v-5.08h2.54v5.08zm-4.064 4.064H7.936v-2.54h2.54v2.54zm0-4.064H7.936v-5.08h2.54v5.08zm5.588-7.112h-1.524V4.064h-2.54v2.54h-2.54V4.064h-2.54v2.54H6.412c-.56 0-1.016.456-1.016 1.016v9.144c0 .56.456 1.016 1.016 1.016h9.144c.56 0 1.016-.456 1.016-1.016V7.852c0-.56-.456-1.016-1.016-1.016z"/>
-                    </svg>
-                    Administrador de Empresas - Universidad Autónoma del Caribe
-                </li>
-                <li class="mb-2 flex items-center">
-                    <svg class="bitcoin-icon w-5 h-5 mr-2" viewBox="0 0 24 24">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.54 17.964h-2.54v-2.54h2.54v2.54zm0-4.064h-2.54v-5.08h2.54v5.08zm-4.064 4.064H7.936v-2.54h2.54v2.54zm0-4.064H7.936v-5.08h2.54v5.08zm5.588-7.112h-1.524V4.064h-2.54v2.54h-2.54V4.064h-2.54v2.54H6.412c-.56 0-1.016.456-1.016 1.016v9.144c0 .56.456 1.016 1.016 1.016h9.144c.56 0 1.016-.456 1.016-1.016V7.852c0-.56-.456-1.016-1.016-1.016z"/>
-                    </svg>
-                    Web3 Certified Expert - University of Nicosia
-                </li>
-                <li class="mb-2 flex items-center">
-                    <svg class="bitcoin-icon w-5 h-5 mr-2" viewBox="0 0 24 24">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.54 17.964h-2.54v-2.54h2.54v2.54zm0-4.064h-2.54v-5.08h2.54v5.08zm-4.064 4.064H7.936v-2.54h2.54v2.54zm0-4.064H7.936v-5.08h2.54v5.08zm5.588-7.112h-1.524V4.064h-2.54v2.54h-2.54V4.064h-2.54v2.54H6.412c-.56 0-1.016.456-1.016 1.016v9.144c0 .56.456 1.016 1.016 1.016h9.144c.56 0 1.016-.456 1.016-1.016V7.852c0-.56-.456-1.016-1.016-1.016z"/>
-                    </svg>
-                    Trading Profesional y Negociación Bursátil - Bolsa de Valores de Colombia
-                </li>
-                <li class="mb-2 flex items-center">
-                    <svg class="bitcoin-icon w-5 h-5 mr-2" viewBox="0 0 24 24">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.54 17.964h-2.54v-2.54h2.54v2.54zm0-4.064h-2.54v-5.08h2.54v5.08zm-4.064 4.064H7.936v-2.54h2.54v2.54zm0-4.064H7.936v-5.08h2.54v5.08zm5.588-7.112h-1.524V4.064h-2.54v2.54h-2.54V4.064h-2.54v2.54H6.412c-.56 0-1.016.456-1.016 1.016v9.144c0 .56.456 1.016 1.016 1.016h9.144c.56 0 1.016-.456 1.016-1.016V7.852c0-.56-.456-1.016-1.016-1.016z"/>
-                    </svg>
-                    Seminario "Mastering Bitcoin" - Librería de Satoshi
-                </li>
-                <li class="flex items-center">
-                    <svg class="bitcoin-icon w-5 h-5 mr-2" viewBox="0 0 24 24">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.54 17.964h-2.54v-2.54h2.54v2.54zm0-4.064h-2.54v-5.08h2.54v5.08zm-4.064 4.064H7.936v-2.54h2.54v2.54zm0-4.064H7.936v-5.08h2.54v5.08zm5.588-7.112h-1.524V4.064h-2.54v2.54h-2.54V4.064h-2.54v2.54H6.412c-.56 0-1.016.456-1.016 1.016v9.144c0 .56.456 1.016 1.016 1.016h9.144c.56 0 1.016-.456 1.016-1.016V7.852c0-.56-.456-1.016-1.016-1.016z"/>
-                    </svg>
-                    Certified Bitcoin Professional (en curso) - CryptoCurrency Certification Consortium
-                </li>
+    <!-- Instructor Bio Section -->
+    <section id="instructor" class="py-16 px-4 md:px-16 bg-blue-900">
+        <div class="max-w-6xl mx-auto fade-in">
+            <h2 class="text-4xl font-bold text-yellow-400 mb-8 text-center">Sobre el Instructor</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Ariel Bueno de Camargo</h3>
+                    <p class="text-lg text-gray-300">Experto en Bitcoin y Web3 con una sólida formación académica y profesional:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-4">
+                        <li>Administrador de Empresas, Universidad Autónoma del Caribe</li>
+                        <li>Certified Web3 Expert, University of Nicosia</li>
+                        <li>Trading Profesional y Negociación Bursátil, Bolsa de Valores de Colombia</li>
+                        <li>Seminario "Mastering Bitcoin" de Andreas Antonopoulos, Librería de Satoshi</li>
+                        <li>Certified Bitcoin Professional (en curso), CryptoCurrency Certification Consortium</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <!-- New character-based image: Character with decentralized network -->
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/character-decentralized-network.png" alt="Ariel Bueno con red descentralizada" class="rounded-lg w-64 h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology and Objectives Section -->
+    <section id="methodology" class="py-16 px-4 md:px-16 bg-gray-900">
+        <div class="max-w-6xl mx-auto fade-in">
+            <h2 class="text-4xl font-bold text-yellow-400 mb-8 text-center">Metodología y Objetivos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Metodología Práctica</h3>
+                    <p class="text-lg text-gray-300">Nuestro enfoque combina:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-4">
+                        <li>Presentaciones visuales claras y concisas.</li>
+                        <li>Talleres interactivos en vivo para resolver dudas.</li>
+                        <li>Recursos en línea para profundizar tu aprendizaje.</li>
+                        <li>Ejercicios prácticos, como crear una semilla offline.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Objetivos del Curso</h3>
+                    <ul class="list-disc pl-5 text-gray-300">
+                        <li>Adquirir Bitcoin de manera segura y privada.</li>
+                        <li>Aplicar estrategias de almacenamiento seguras.</li>
+                        <li>Desarrollar confianza para manejar riesgos.</li>
+                        <li>Comprender la descentralización y resistencia de Bitcoin.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 flex justify-center">
+                <!-- Updated with GitHub-hosted decentralized network image -->
+                <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/decentralized-network-coins.png" alt="Red Descentralizada" class="rounded-lg max-w-full h-auto">
+            </div>
+            <div class="mt-8 flex justify-center">
+                <!-- New character-based image: Character securing wallet -->
+                <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/character-securing-wallet.png" alt="Instructor asegurando billetera" class="rounded-lg max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- EDITAR DATOS DE CONTACTO AQUÍ -->
+    <section id="contact" class="py-16 px-4 md:px-16 bg-blue-900">
+        <div class="max-w-6xl mx-auto fade-in">
+            <h2 class="text-4xl font-bold text-yellow-400 mb-8 text-center">Contáctame</h2>
+            <p class="text-lg text-gray-300 mb-6 text-center">¿Listo para empezar? Escríbeme para más detalles o para inscribirte.</p>
+            <div class="flex justify-center">
+                <a href="https://t.me/abcb1122" class="btn bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg mr-4">
+                    <i class="fab fa-telegram-plane mr-2"></i> Telegram
+                </a>
+                <!-- Agrega más métodos de contacto aquí (WhatsApp, email, etc.) -->
+                <!-- Ejemplo: <a href="mailto:tuemail@example.com" class="btn bg-gray-700 text-white font-bold py-3 px-6 rounded-lg">Email</a> -->
+            </div>
+        </div>
+    </section>
+    <!-- FIN DE EDICIÓN DE DATOS DE CONTACTO -->
+
+    <!-- Payment Section -->
+    <!-- EDITAR MÉTODOS DE PAGO AQUÍ -->
+    <section id="payment" class="py-16 px-4 md:px-16 bg-gray-900">
+        <div class="max-w-6xl mx-auto fade-in">
+            <h2 class="text-4xl font-bold text-yellow-400 mb-8 text-center">Métodos de Pago</h2>
+            <p class="text-lg text-gray-300 mb-6 text-center">Paga de forma segura usando Bitcoin, Lightning Network o transferencia bancaria.</p>
+            <ul class="list-disc pl-5 text-gray-300 mx-auto max-w-lg">
+                <li><strong>Bitcoin/Lightning Network:</strong> Contáctame para recibir una factura.</li>
+                <li><strong>Transferencia Bancaria:</strong> Detalles disponibles tras contacto.</li>
+                <!-- Agrega o elimina métodos de pago aquí -->
             </ul>
+            <div class="flex justify-center mt-6">
+                <a href="https://t.me/abcb1122" class="btn bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg">Solicitar Factura</a>
+            </div>
         </div>
     </section>
-
-    <!-- Call to Action -->
-    <section class="py-12 px-4 md:px-8 text-center relative z-10">
-        <h3 class="text-3xl md:text-4xl font-bold mb-6 flex items-center justify-center">
-            <svg class="bitcoin-icon w-8 h-8 mr-2" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.54 17.964h-2.54v-2.54h2.54v2.54zm0-4.064h-2.54v-5.08h2.54v5.08zm-4.064 4.064H7.936v-2.54h2.54v2.54zm0-4.064H7.936v-5.08h2.54v5.08zm5.588-7.112h-1.524V4.064h-2.54v2.54h-2.54V4.064h-2.54v2.54H6.412c-.56 0-1.016.456-1.016 1.016v9.144c0 .56.456 1.016 1.016 1.016h9.144c.56 0 1.016-.456 1.016-1.016V7.852c0-.56-.456-1.016-1.016-1.016z"/>
-            </svg>
-            🔐 No es para especular. Es para proteger lo que has construido.
-        </h3>
-        <p class="text-lg mb-8 max-w-2xl mx-auto">Únete a este curso y aprende a manejar Bitcoin de forma segura y privada para asegurar tu patrimonio y legado.</p>
-        <a href="https://t.me/abcb1122" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-yellow-400 transition hover-scale glow-effect">Comienza Hoy</a>
-    </section>
+    <!-- FIN DE EDICIÓN DE MÉTODOS DE PAGO -->
 
     <!-- Footer -->
-    <footer class="py-6 px-4 md:px-8 text-center text-gray-400 relative z-10">
-        <p>© 2025 ABCB - Curso de Introducción al Bitcoin. Todos los derechos reservados.</p>
+    <footer class="py-8 px-4 bg-blue-900 text-center">
+        <p class="text-gray-300">© 2025 Curso de Bitcoin por Ariel Bueno de Camargo. Construye riqueza con descentralización.</p>
     </footer>
+
+    <!-- JavaScript for Fade-In Animation -->
+    <script>
+        // Select all elements with fade-in class
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        // Function to check if element is in viewport
+        const isInViewport = (element) => {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+        };
+
+        // Function to handle scroll and apply fade-in
+        const handleScroll = () => {
+            fadeElements.forEach((element) => {
+                if (isInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Check on page load
+        handleScroll();
+    </script>
 </body>
 </html>
