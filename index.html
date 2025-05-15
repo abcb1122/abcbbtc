@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,20 +13,17 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Custom CSS for additional styling */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0a0a0a; /* Deep black for luxury */
+            background-color: #0a0a0a;
             color: #ffffff;
         }
         h1, h2, h3 {
             font-family: 'Chakra Petch', sans-serif;
         }
-        /* Smooth scrolling for anchor links */
         html {
             scroll-behavior: smooth;
         }
-        /* Hero section with gradient overlay */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://raw.githubusercontent.com/abcb1122/abcb1122.github.io/main/images/bitcoin-logo-futuristic.png');
             background-size: cover;
@@ -35,7 +34,6 @@
             justify-content: center;
             text-align: center;
         }
-        /* Fade-in animation for scroll */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -45,7 +43,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Hover effect for buttons */
         .btn {
             transition: background-color 0.3s, transform 0.2s;
         }
@@ -84,9 +81,6 @@
                 <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
                     <img src="https://raw.githubusercontent.com/abcb1122/abcb1122.github.io/main/images/secure-wallet-vault.png" alt="Billetera Segura" class="rounded-lg max-w-sm h-auto">
                 </div>
-            </div>
-            <div class="mt-8 flex justify-center">
-                <img src="https://raw.githubusercontent.com/abcb1122/abcb1122.github.io/main/images/character-teaching-classroom.png" alt="Instructor enseñando sobre Bitcoin" class="rounded-lg max-w-md h-auto">
             </div>
         </div>
     </section>
@@ -139,14 +133,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-8 flex justify-center">
-                <img src="https://raw.githubusercontent.com/abcb1122/abcb1122.github.io/main/images/decentralized-network-coins.png" alt="Red Descentralizada" class="rounded-lg max-w-md h-auto">
-            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <!-- EDITAR DATOS DE CONTACTO AQUÍ -->
     <section id="contact" class="py-16 px-4 md:px-16 bg-blue-900">
         <div class="max-w-6xl mx-auto fade-in">
             <h2 class="text-4xl font-bold text-yellow-400 mb-8 text-center">Contáctame</h2>
@@ -155,15 +145,14 @@
                 <a href="https://t.me/abcb1122" target="_blank" rel="noopener noreferrer" class="btn bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg mr-4">
                     <i class="fab fa-telegram-plane mr-2"></i> Telegram
                 </a>
-                <!-- Agrega más métodos de contacto aquí (WhatsApp, email, etc.) -->
-                <!-- Ejemplo: <a href="mailto:tuemail@example.com" target="_blank" rel="noopener noreferrer" class="btn bg-gray-700 text-white font-bold py-3 px-6 rounded-lg">Email</a> -->
+            </div>
+            <div class="mt-8 flex justify-center">
+                <img src="https://raw.githubusercontent.com/abcb1122/abcb1122.github.io/main/images/decentralized-network-coins.png" alt="Red Descentralizada" class="rounded-lg max-w-md h-auto">
             </div>
         </div>
     </section>
-    <!-- FIN DE EDICIÓN DE DATOS DE CONTACTO -->
 
     <!-- Payment Section -->
-    <!-- EDITAR MÉTODOS DE PAGO AQUÍ -->
     <section id="payment" class="py-16 px-4 md:px-16 bg-gray-900">
         <div class="max-w-6xl mx-auto fade-in">
             <h2 class="text-4xl font-bold text-yellow-400 mb-8 text-center">Métodos de Pago</h2>
@@ -171,14 +160,12 @@
             <ul class="list-disc pl-5 text-gray-300 mx-auto max-w-lg">
                 <li><strong>Bitcoin/Lightning Network🤩:</strong> Contáctame para recibir una factura.</li>
                 <li><strong>Transferencia Bancaria🤮:</strong> Detalles disponibles tras contacto.</li>
-                <!-- Agrega o elimina métodos de pago aquí -->
             </ul>
             <div class="flex justify-center mt-6">
                 <a href="https://t.me/abcb1122" target="_blank" rel="noopener noreferrer" class="btn bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg">Solicitar Factura</a>
             </div>
         </div>
     </section>
-    <!-- FIN DE EDICIÓN DE MÉTODOS DE PAGO -->
 
     <!-- Footer -->
     <footer class="py-8 px-4 bg-blue-900 text-center">
@@ -187,19 +174,11 @@
 
     <!-- JavaScript for Fade-In Animation -->
     <script>
-        // Select all elements with fade-in class
         const fadeElements = document.querySelectorAll('.fade-in');
-
-        // Function to check if element is in viewport
         const isInViewport = (element) => {
             const rect = element.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.top <= (window.innerHeight || document.documentElement.clientHeight)
-            );
+            return rect.top >= 0 && rect.top <= (window.innerHeight || document.documentElement.clientHeight);
         };
-
-        // Function to handle scroll and apply fade-in
         const handleScroll = () => {
             fadeElements.forEach((element) => {
                 if (isInViewport(element)) {
@@ -207,11 +186,7 @@
                 }
             });
         };
-
-        // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
-
-        // Check on page load
         handleScroll();
     </script>
 </body>
