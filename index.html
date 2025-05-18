@@ -67,6 +67,7 @@
             border-radius: 8px;
             color: #ffffff;
             text-decoration: none;
+            background-color: #F7931A; /* Color inicial: naranja Bitcoin */
         }
         .btn:hover {
             transform: scale(1.05);
@@ -238,37 +239,19 @@
                 <!-- Suministro Total On-Chain Widget -->
                 <div style="margin-bottom: 20px;">
                     <div style="background-color: #1f2937; padding: 16px; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 18px; color: #facc15;"><span id="btc-supply">Cargando...</span> BTC</p>
+                        <p style="font-size: 18px; color: #facc15;"><span id="btc-supply">Cargando...</span> BTC en circulación</p>
+                    </div>
+                </div>
+                <!-- Altura del Bloque Actual Widget -->
+                <div style="margin-bottom: 20px;">
+                    <div style="background-color: #1f2937; padding: 16px; border-radius: 8px; text-align: center;">
+                        <p style="font-size: 18px; color: #facc15;"><span id="block-height">Cargando...</span> bloque actual</p>
                     </div>
                 </div>
                 <!-- Capacidad Lightning Network Widget (Desde ln_capacity.json) -->
                 <div style="margin-bottom: 20px;">
                     <div style="background-color: #1f2937; padding: 16px; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 18px; color: #facc15;"><span id="ln-capacity-json">Cargando...</span> BTC (Fuente: Tu Nodo MyNode)</p>
-                    </div>
-                </div>
-                <!-- Capacidad Lightning Network Widget (1ML - Fuente Anterior) -->
-                <div style="margin-bottom: 20px;">
-                    <div style="background-color: #1f2937; padding: 16px; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 18px; color: #facc15;"><span id="ln-capacity">Cargando...</span> BTC (Fuente: 1ML)</p>
-                    </div>
-                </div>
-                <!-- Capacidad Lightning Network Widget (Mempool - Fuente Anterior) -->
-                <div style="margin-bottom: 20px;">
-                    <div style="background-color: #1f2937; padding: 16px; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 18px; color: #facc15;"><span id="ln-capacity-mempool">Cargando...</span> BTC (Fuente: Mempool)</p>
-                    </div>
-                </div>
-                <!-- Capacidad Lightning Network Widget (Amboss - Fuente Anterior) -->
-                <div style="margin-bottom: 20px;">
-                    <div style="background-color: #1f2937; padding: 16px; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 18px; color: #facc15;"><span id="ln-capacity-amboss">Cargando...</span> BTC (Fuente: Amboss)</p>
-                    </div>
-                </div>
-                <!-- Capacidad Lightning Network Widget (Glassnode - Fuente Anterior) -->
-                <div style="margin-bottom: 20px;">
-                    <div style="background-color: #1f2937; padding: 16px; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 18px; color: #facc15;"><span id="ln-capacity-glassnode">Cargando...</span> BTC (Fuente: Glassnode - Requiere API Key)</p>
+                        <p style="font-size: 18px; color: #facc15;"><span id="ln-capacity-json">Cargando...</span> BTC en Lightning Network ⚡️</p>
                     </div>
                 </div>
             </div>
@@ -336,7 +319,7 @@
                 if (!response.ok) throw new Error('API error');
                 const data = await response.json();
                 const supply = data.market_data.circulating_supply;
-                document.getElementById('btc-supply').textContent = supply.toLocaleString(undefined, { maximumFractionDigits: 2 });
+                document.getElementById('btc-supply').textContent = supply.toLocaleString('en-US', { maximumFractionDigits: 2, useGrouping: true }).replace(/,/g, '.');
             } catch (error) {
                 document.getElementById('btc-supply').textContent = 'Error al cargar';
             }
@@ -344,113 +327,37 @@
         fetchBitcoinSupply();
         setInterval(fetchBitcoinSupply, 600000); // Actualiza cada 5 minutos
 
+        // Altura del Bloque Actual (Mempool)
+        async function fetchBlockHeight() {
+            try {
+                const response = await fetch('https://mempool.space/api/blocks/tip/height');
+                if (!response.ok) throw new Error('API error');
+                const height = await response.json();
+                document.getElementById('block-height').textContent = height.toLocaleString('en-US', { useGrouping: true }).replace(/,/g, '.');
+            } catch (error) {
+                document.getElementById('block-height').textContent = 'Error al cargar';
+            }
+        }
+        fetchBlockHeight();
+        setInterval(fetchBlockHeight, 600000); // Actualiza cada 5 minutos
+
         // Capacidad Lightning Network (Desde ln_capacity.json)
         async function fetchLightningCapacityJson() {
             try {
                 const response = await fetch('https://raw.githubusercontent.com/abcb1122/abcb1122.github.io/main/ln_capacity.json');
                 if (response.ok) {
                     const data = await response.json();
-                    document.getElementById('ln-capacity-json').textContent = data.capacity_btc.toLocaleString(undefined, { maximumFractionDigits: 2 });
+                    const capacity = Math.floor(data.capacity_btc); // Redondea hacia abajo, sin decimales
+                    document.getElementById('ln-capacity-json').textContent = capacity.toLocaleString('en-US', { useGrouping: true }).replace(/,/g, '.');
                     return;
                 }
-                document.getElementById('ln-capacity-json').textContent = 'Error al cargar (1370.86)';
+                document.getElementById('ln-capacity-json').textContent = 'Error al cargar (1370)';
             } catch (error) {
-                document.getElementById('ln-capacity-json').textContent = 'Error al cargar (1370.86)';
+                document.getElementById('ln-capacity-json').textContent = 'Error al cargar (1370)';
             }
         }
         fetchLightningCapacityJson();
         setInterval(fetchLightningCapacityJson, 86400000); // Actualiza cada 24 horas
-
-        // Capacidad Lightning Network (1ML - Fuente Anterior)
-        async function fetchLightningCapacity() {
-            try {
-                const response1ML = await fetch('https://1ml.com/statistics?json=true');
-                if (response1ML.ok) {
-                    const data = await response1ML.json();
-                    const capacitySatoshis = data.total_capacity;
-                    const capacityBTC = capacitySatoshis / 100000000;
-                    document.getElementById('ln-capacity').textContent = capacityBTC.toLocaleString(undefined, { maximumFractionDigits: 2 });
-                    return;
-                }
-                document.getElementById('ln-capacity').textContent = 'Error al cargar (~5,270 BTC)';
-            } catch (error) {
-                document.getElementById('ln-capacity').textContent = 'Error al cargar (~5,270 BTC)';
-            }
-        }
-        fetchLightningCapacity();
-        setInterval(fetchLightningCapacity, 300000); // Actualiza cada 5 minutos
-
-        // Capacidad Lightning Network (Mempool - Fuente Anterior)
-        async function fetchLightningCapacityMempool() {
-            try {
-                const response = await fetch('https://mempool.space/api/v1/lightning/statistics');
-                if (response.ok) {
-                    const data = await response.json();
-                    const capacitySatoshis = data.latest.total_capacity;
-                    const capacityBTC = capacitySatoshis / 100000000;
-                    document.getElementById('ln-capacity-mempool').textContent = capacityBTC.toLocaleString(undefined, { maximumFractionDigits: 2 });
-                    return;
-                }
-                document.getElementById('ln-capacity-mempool').textContent = 'Error al cargar (~4,245 BTC)';
-            } catch (error) {
-                document.getElementById('ln-capacity-mempool').textContent = 'Error al cargar (~4,245 BTC)';
-            }
-        }
-        fetchLightningCapacityMempool();
-        setInterval(fetchLightningCapacityMempool, 300000); // Actualiza cada 5 minutos
-
-        // Capacidad Lightning Network (Amboss - Fuente Anterior)
-        async function fetchLightningCapacityAmboss() {
-            try {
-                const response = await fetch('https://api.amboss.space/graphql', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        query: `
-                            query {
-                                getNetworkStats {
-                                    total_capacity
-                                }
-                            }
-                        `
-                    })
-                });
-                if (response.ok) {
-                    const data = await response.json();
-                    const capacitySatoshis = data.data.getNetworkStats.total_capacity;
-                    const capacityBTC = capacitySatoshis / 100000000;
-                    document.getElementById('ln-capacity-amboss').textContent = capacityBTC.toLocaleString(undefined, { maximumFractionDigits: 2 });
-                    return;
-                }
-                document.getElementById('ln-capacity-amboss').textContent = 'Error al cargar (~4,245 BTC)';
-            } catch (error) {
-                document.getElementById('ln-capacity-amboss').textContent = 'Error al cargar (~4,245 BTC)';
-            }
-        }
-        fetchLightningCapacityAmboss();
-        setInterval(fetchLightningCapacityAmboss, 300000); // Actualiza cada 5 minutos
-
-        // Capacidad Lightning Network (Glassnode - Fuente Anterior)
-        async function fetchLightningCapacityGlassnode() {
-            try {
-                const response = await fetch('https://api.glassnode.com/v1/metrics/lightning/network_capacity_sum', {
-                    headers: {
-                        'Authorization': 'Bearer YOUR_GLASSNODE_API_KEY' // Reemplaza con tu clave API
-                    }
-                });
-                if (response.ok) {
-                    const data = await response.json();
-                    const capacityBTC = data[data.length - 1].v; // Último valor en BTC
-                    document.getElementById('ln-capacity-glassnode').textContent = capacityBTC.toLocaleString(undefined, { maximumFractionDigits: 2 });
-                    return;
-                }
-                document.getElementById('ln-capacity-glassnode').textContent = 'Error al cargar (~4,245 BTC)';
-            } catch (error) {
-                document.getElementById('ln-capacity-glassnode').textContent = 'Error al cargar (~4,245 BTC)';
-            }
-        }
-        fetchLightningCapacityGlassnode();
-        setInterval(fetchLightningCapacityGlassnode, 300000); // Actualiza cada 5 minutos
     </script>
 </body>
 </html>
